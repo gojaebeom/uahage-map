@@ -1,15 +1,15 @@
 export const getQuerystringInfo = () => {
-    const path = window.location.search.substring( 1 );
-    console.log( path );
-    if( path === "" ){
-        return { 
-            lat: 35.1449589,
-            lon: 126.9216603,
-            search: false,
+    const path = window.location.search.substring(1);
+    try{
+        return JSON.parse('{"' + decodeURI(path)
+        .replace(/"/g, '\\"')
+        .replace(/&/g, '","')
+        .replace(/=/g, '":"') + '"}');
+    }catch(e){
+        console.warn("위도, 경도값이 입력되지 않아, 대체 장소로 이동됩니다.");
+        return {
+            lat:"", 
+            lon:""
         }
     }
-    return JSON.parse('{"' + decodeURI(path)
-            .replace(/"/g, '\\"')
-            .replace(/&/g, '","')
-            .replace(/=/g,'":"') + '"}');
 }

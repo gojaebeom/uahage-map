@@ -1,6 +1,6 @@
 {
-    "extends": "react-app",
-    "rules": {
-        // "no-undef":"off"
-    }
+  "extends": "react-app",
+  "rules": {
+    // "no-undef":"off"
+  }
 }

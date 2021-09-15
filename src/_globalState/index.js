@@ -1,5 +1,5 @@
-import { combineReducers } from "redux";
-import { userLocation } from "./modules/userLocation";
+import {combineReducers} from "redux";
+import {userLocation} from "./modules/userLocation";
 
 const mainReducer = combineReducers({
     userLocation

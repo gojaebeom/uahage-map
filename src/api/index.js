@@ -1,6 +1,6 @@
 import axios from "axios";
 
-export async function apiScaffold({METHOD, URL, DATA=null}){
+export async function apiScaffold({METHOD, URL, DATA = null}) {
     console.log(DATA);
     return await axios({
         method: METHOD,
@@ -11,13 +11,13 @@ export async function apiScaffold({METHOD, URL, DATA=null}){
         // },
         data: DATA,
     })
-    .then(data => data.data)
-    .catch(err => {
-        const status = err.response.status;
-        const message = err.response.statusText;
-        console.log(err.response);
-        // throw new Error(message);
-        throw new Error(err);
-    });
+        .then(data => data.data)
+        .catch(err => {
+            const status = err.response.status;
+            const message = err.response.statusText;
+            console.log(err.response);
+            // throw new Error(message);
+            throw new Error(err);
+        });
 }
 
