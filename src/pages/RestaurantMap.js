@@ -23,11 +23,26 @@ const RestaurantMap = () => {
 
     // eslint-disable-next-line react-hooks/exhaustive-deps
     useEffect(async () => {
-
         // 맵이 완전이 로딩 될 때 까지 로딩컨텐츠 보여주기
         const loadingContainer = createLoadingContainer();
 
-        let { lat, lon, userId, isBookmarked, babyBed, babyChair, babyMenu, babyTableware, stroller, diaperChange, meetingRoom, nursingRoom, playRoom, parking } = getQuerystringInfo();
+        let { 
+            lat, 
+            lon, 
+            userId, 
+            isBookmarked, 
+            babyBed, 
+            babyChair, 
+            babyMenu, 
+            babyTableware, 
+            stroller, 
+            diaperChange, 
+            meetingRoom, 
+            nursingRoom, 
+            playRoom, 
+            parking,
+            type
+        } = getQuerystringInfo();
 
         if( !lat || !lon ){
             lat = 35.1449589;
@@ -66,11 +81,11 @@ const RestaurantMap = () => {
             userId: userId
         });
 
-        if (false)
-            new kakao.maps.CustomOverlay({
+        if (type === "destination"){
+            const destinationMarker = new kakao.maps.CustomOverlay({
                 map: map,
                 content:
-                `<div class="border w-10 h-10"> 
+                `<div class="w-10 h-10"> 
                     <img src="${destinationImg}" />
                 </div>`,
                 position: new kakao.maps.LatLng(lat, lon),
@@ -78,8 +93,10 @@ const RestaurantMap = () => {
                 xAnchor: 0.5,
                 clickable: true,
             });
-        else
-            new kakao.maps.Marker({
+            destinationMarker.a.style.zIndex = 5;
+        }
+        else{
+            const userMarker = new kakao.maps.Marker({
                 map: map,
                 position: new kakao.maps.LatLng(lat, lon),
                 image: new kakao.maps.MarkerImage(
@@ -88,6 +105,8 @@ const RestaurantMap = () => {
                     new kakao.maps.Point(13, 34)
                 ),
             });
+            userMarker.a.querySelector("img").style.zIndex = 5;
+        }
 
 
         const res = await apiScaffold({
