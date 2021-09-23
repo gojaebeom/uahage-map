@@ -49,10 +49,6 @@ const RestaurantMap = () => {
             lon = 126.9216603;
         }
 
-        console.log({
-            userId, isBookmarked, babyBed, babyChair, babyMenu, babyTableware, stroller, diaperChange, meetingRoom, nursingRoom, playRoom, parking
-        });
-
         if( !userId ) userId = 0;
         if(isBookmarked !== "true") isBookmarked = false;
         if(babyBed !== "true") babyBed = false;
@@ -113,7 +109,6 @@ const RestaurantMap = () => {
             METHOD: "GET",
             URL: `${process.env.REACT_APP__URL}/places/restaurants?lat=${lat}&lon=${lon}&userId=${userId}&isBookmarked=${isBookmarked}&babyBed=${babyBed}&babyChair=${babyChair}&babyMenu=${babyMenu}&babyTableware=${babyTableware}&stroller=${stroller}&diaperChange=${diaperChange}&meetingRoom=${meetingRoom}&nursingRoom=${nursingRoom}&playRoom=${playRoom}&parking=${parking}`,
         });
-        console.log(res);
 
         let placeMarkers = [];
         drawMarkers(map, res.places, placeMarkers);
@@ -254,7 +249,6 @@ const RestaurantMap = () => {
     }
 
     const getPlaceDetailInfo = ( result ) => {
-        console.log( result );
         result = JSON.stringify( result );
         Print.postMessage( result );
     }

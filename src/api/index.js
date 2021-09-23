@@ -1,7 +1,6 @@
 import axios from "axios";
 
 export async function apiScaffold({METHOD, URL, DATA = null}) {
-    console.log(DATA);
     return await axios({
         method: METHOD,
         url: URL,

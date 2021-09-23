@@ -89,10 +89,9 @@ const SearchMap = () => {
         const el = document.createElement('li');
         const dom = `
         <div class="w-full border-b p-5 cursor-pointer">
-            <h5 class="text-gray-800 text-xl">${ places.place_name }</h5>
-            <span>${ places.road_address_name ? places.road_address_name : '' }</span>
-            <span>${ places.address_name }</span>
-            <span class="tel">${ places.phone }</span>
+            <h5 class="font-noto-medium text-gray-800 text-xl mb-1">${ places.place_name }</h5>
+            <p class="font-noto-light text-gray-400">${ places.road_address_name ? places.road_address_name : places.address_name  }</p>
+            <p class="text-custom-pink">${ places.phone }</p>
         </div>`; 
         el.innerHTML = dom;
         el.className = "item";

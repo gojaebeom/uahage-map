@@ -3,6 +3,40 @@
 @tailwind components;
 @tailwind utilities;
 
+/* IMPORT NOTO FONT */
+@font-face {
+    font-family: 'noto-black';
+    src: url(./assets/fonts/NotoSansKR-Black.otf);
+}
+
+@font-face {
+    font-family: 'noto-bold';
+    src: url(./assets/fonts/NotoSansKR-Bold.otf);
+}
+
+@font-face {
+    font-family: 'noto-medium';
+    src: url(./assets/fonts/NotoSansKR-Medium.otf);
+}
+
+@font-face {
+    font-family: 'noto-regular';
+    src: url(./assets/fonts/NotoSansKR-Regular.otf);
+}
+
+@font-face {
+    font-family: 'noto-light';
+    src: url(./assets/fonts/NotoSansKR-Light.otf);
+}
+
+@font-face {
+    font-family: 'noto-thin';
+    src: url(./assets/fonts/NotoSansKR-Thin.otf);
+}
+
+.text-custom-pink{
+    color:#EB5376;
+}
 .bg-border-custom-pink {
     background-color: #FF728E;
     border:1px solid #EB5376;
